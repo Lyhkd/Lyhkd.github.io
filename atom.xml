@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-07-24T07:27:46.601Z</updated>
+  <updated>2023-07-24T08:15:38.099Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,15 +21,12 @@
     <link href="http://example.com/2023/07/24/Butterfly/"/>
     <id>http://example.com/2023/07/24/Butterfly/</id>
     <published>2023-07-24T07:24:30.000Z</published>
-    <updated>2023-07-24T07:27:46.601Z</updated>
+    <updated>2023-07-24T08:15:38.099Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="note"><a href="#note" class="headerlink" title="note"></a>note</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note [class] [no-icon] [style] %&#125;</span><br><span class="line">Any content (support inline tags too.io).</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure><table><thead><tr><th>名稱</th><th>用法</th></tr></thead><tbody><tr><td>class</td><td>【可選】標識，不同的標識有不同的配色（ default &#x2F; primary &#x2F; success &#x2F; info &#x2F; warning &#x2F; danger ）</td></tr><tr><td>no-icon</td><td>【可選】不顯示 icon</td></tr><tr><td>style</td><td>【可選】可以覆蓋配置中的 style （simple&#x2F;modern&#x2F;flat&#x2F;disabled）</td></tr></tbody></table><h3 id="label"><a href="#label" class="headerlink" title="label"></a>label</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% label text color %&#125;</span><br></pre></td></tr></table></figure><h3 id="timeline"><a href="#timeline" class="headerlink" title="timeline"></a>timeline</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% timeline 2022 blue(pink/red/purple/orange/green) %&#125;</span><br><span class="line">&lt;!-- timeline 01-02 --&gt;</span><br><span class="line">這是測試頁面</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">&#123;% endtimeline %&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>摘录自官方教程，便于查看的一些写博客语法w</p><span id="more"></span><h2 id="note"><a href="#note" class="headerlink" title="note"></a>note</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note [class] [no-icon] [style] %&#125;</span><br><span class="line">Any content (support inline tags too.io).</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure><table><thead><tr><th>名稱</th><th>用法</th></tr></thead><tbody><tr><td>class</td><td>【可選】標識，不同的標識有不同的配色（ default &#x2F; primary &#x2F; success &#x2F; info &#x2F; warning &#x2F; danger ）</td></tr><tr><td>no-icon</td><td>【可選】不顯示 icon</td></tr><tr><td>style</td><td>【可選】可以覆蓋配置中的 style （simple&#x2F;modern&#x2F;flat&#x2F;disabled）</td></tr></tbody></table><div class="note primary modern"><p>Any content (support inline tags too.io).</p></div><h3 id="label"><a href="#label" class="headerlink" title="label"></a>label</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% label text color %&#125;</span><br></pre></td></tr></table></figure><mark class="hl-label green">text</mark> <h3 id="timeline"><a href="#timeline" class="headerlink" title="timeline"></a>timeline</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% timeline 2022,blue(pink/red/purple/orange/green) %&#125;</span><br><span class="line">&lt;!-- timeline 01-02 --&gt;</span><br><span class="line">這是測試頁面</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">&#123;% endtimeline %&#125;</span><br></pre></td></tr></table></figure><div class="timeline blue"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>2022</p></div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>01-02</p></div></div><div class='timeline-item-content'><p>這是測試頁面</p></div></div></div>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;h2 id=&quot;note&quot;&gt;&lt;a href=&quot;#note&quot; class=&quot;headerlink&quot; title=&quot;note&quot;&gt;&lt;/a&gt;note&lt;/h2&gt;&lt;figure class=&quot;highlight markdown&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;</summary>
-      
+    <summary type="html">&lt;p&gt;摘录自官方教程，便于查看的一些写博客语法w&lt;/p&gt;</summary>
     
     
     
