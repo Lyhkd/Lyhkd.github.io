@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-07-25T00:53:01.684Z</updated>
+  <updated>2023-07-26T10:29:10.359Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LaTeX数学公式语法学习记录</title>
+    <link href="http://example.com/2023/07/26/LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    <id>http://example.com/2023/07/26/LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</id>
+    <published>2023-07-26T10:05:05.000Z</published>
+    <updated>2023-07-26T10:29:10.359Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="公式编号"><a href="#公式编号" class="headerlink" title="公式编号"></a>公式编号</h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span> f(x) = a - b <span class="keyword">\tag</span>&#123;1.1&#125; <span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure><h3 id="数学运算"><a href="#数学运算" class="headerlink" title="数学运算"></a>数学运算</h3><ul><li>点乘<code>2 = 2 \cdot x</code> $2 &#x3D; 2 \cdot x$</li><li>不等于<code>1 \neq 0</code> $ 1 \neq 0$</li><li>恒等于<code>1 \equiv 1</code> $1 \equiv 1$</li><li>取模<code>1 = 9 \bmod 2</code> $1 &#x3D; 9 \bmod 2$</li><li>下标<code>log_&#123;2&#125;&#123;x+1&#125;</code> $ log_{2}{x+1}$</li><li>上标<code>e^x</code> $ e^x$</li><li>求导<code>X&#39;</code> $ X’$</li><li>根号<code>\sqrt&#123;X+4&#125;</code>  $\sqrt {X+4}$</li><li>n次方根<code>\sqrt[3]&#123;21&#125;</code>  $\sqrt[3] {21}$</li><li>分数<code>\frac&#123;3&#125;&#123;4&#125;</code> $\frac{3}{4}$</li><li>上加线<code>\overline&#123;x&#125;</code>  $\overline{x}$</li><li>下加线<code>\underline&#123;x&#125;</code> $\underline{x}$</li><li>上括号<code>\overbrace&#123;x&#125;^&#123;y&#125;</code> $\overbrace{x}^{y}$</li><li>下括号<code>\underbrace&#123;x&#125;_&#123;y&#125;</code> $\underbrace{x}_{y}$</li><li>向量<code>\vec&#123;x&#125;</code> $\vec{x}$</li><li>右箭头<code>\overrightarrow&#123;x&#125;</code> $\overrightarrow{x}$</li><li>左箭头<code>\overleftarrow&#123;x&#125;</code> $\overleftarrow{x}$</li><li>积分<code>\int_&#123;1&#125;^&#123;5&#125;x\mathrm&#123;d&#125;x</code>$\int_{1}^{5}x\mathrm{d}x$</li><li>极限<code>\lim_&#123;x \to \infty&#125;</code> $\lim_{x \to \infty}$</li><li>求和<code>\sum_&#123;n=1&#125;^&#123;20&#125; n^&#123;2&#125;</code> $\sum_{n&#x3D;1}^{20} n^{2}$</li><li>求积<code>\prod_&#123;j=1&#125;^&#123;3&#125; y_&#123;j&#125;</code> $\prod_{j&#x3D;1}^{3} y_{j}$</li><li>省略号<code>x_&#123;1&#125;,x_&#123;2&#125;,\ldots,x_&#123;5&#125;</code>$x_{1},x_{2},\ldots,x_{5}$</li><li>hat<code>\hat&#123;x&#125;</code> $\hat{x}$</li><li>bar<code>\bar&#123;x&#125;</code> $\bar{x}$</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;公式编号&quot;&gt;&lt;a href=&quot;#公式编号&quot; class=&quot;headerlink&quot; title=&quot;公式编号&quot;&gt;&lt;/a&gt;公式编号&lt;/h3&gt;&lt;figure class=&quot;highlight latex&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pr</summary>
+      
+    
+    
+    
+    <category term="学习笔记" scheme="http://example.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="LaTeX" scheme="http://example.com/tags/LaTeX/"/>
+    
+  </entry>
   
   <entry>
     <title>计算机系统概论(ICS)课程笔记Chapter1【22-23暑短】</title>
@@ -27,6 +51,29 @@
     
     
     <summary type="html">计算机系统概论Chapter1课程笔记，教材采用Yale Patt - Introduction to Computing Systems(3rd Edition)</summary>
+    
+    
+    
+    <category term="课程笔记" scheme="http://example.com/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="ICS" scheme="http://example.com/tags/ICS/"/>
+    
+    <category term="计算机系统概论" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机系统概论(ICS)课程笔记Chapter17【22-23暑短】</title>
+    <link href="http://example.com/2023/07/25/ICS-Chapter17/"/>
+    <id>http://example.com/2023/07/25/ICS-Chapter17/</id>
+    <published>2023-07-25T00:35:35.000Z</published>
+    <updated>2023-07-26T10:03:04.485Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Chapter17"><a href="#Chapter17" class="headerlink" title="Chapter17"></a>Chapter17</h1><h2 id="17-1-Introduction"><a href="#17-1-Introduction" class="headerlink" title="17.1 Introduction"></a>17.1 Introduction</h2><div class="note primary no-icon modern"><p>recursive: solving the problem by stating that we’ll solve it on successively smaller versions of the problem </p></div><h2 id="17-2-What-Is-Recursion"><a href="#17-2-What-Is-Recursion" class="headerlink" title="17.2 What Is Recursion?"></a>17.2 What Is Recursion?</h2><ul><li>Definition: A function that calls itself is a recursive function. </li><li>In mathematics, we use <em>recurrence equations</em> to express such functions.</li></ul><h2 id="17-3-Recursion-vs-Iteration"><a href="#17-3-Recursion-vs-Iteration" class="headerlink" title="17.3 Recursion vs. Iteration"></a>17.3 Recursion vs. Iteration</h2><ul><li><p>所有的递归函数都能被写成迭代（循环）的形式，但是递归是更简单、更优雅的。</p><blockquote><p>The power of recursion lies in its ability to elegantly express the computation flow for certain programming tasks.</p></blockquote></li><li><p>递归会比迭代运行得更慢（前提是编译器不会把递归最优化）</p></li><li><blockquote><p>provided the compiler did not optimize away the recursion, which it can do through a simple transformation that converts certain types of recursive code to iterative code when the recursion is the last operation in the function, i.e., it occurs at the tail of the function</p></blockquote></li><li><p>有些编译器会把一些<strong>简单形式的尾递归自</strong>动转变成迭代的代码</p></li></ul><h2 id="17-4-Towers-of-Hanoi"><a href="#17-4-Towers-of-Hanoi" class="headerlink" title="17.4 Towers of Hanoi"></a>17.4 Towers of Hanoi</h2><img src="/2023/07/25/ICS-Chapter17/image-20230726113744877.png" alt="image-20230726113744877" style="zoom:50%;"><ul><li>Recurrence equation: Move(n, target) &#x3D; Move(n-1, intermediate) + Move(1, target) + Move(n-1, target)</li></ul>]]></content>
+    
+    
+    <summary type="html">计算机系统概论Chapter17课程笔记，教材采用Yale Patt - Introduction to Computing Systems(3rd Edition)</summary>
     
     
     
