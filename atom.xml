@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-07-26T10:35:28.690Z</updated>
+  <updated>2023-08-05T00:40:15.969Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,13 +17,53 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="http://example.com/2023/08/05/CV/CV-notes/"/>
+    <id>http://example.com/2023/08/05/CV/CV-notes/</id>
+    <published>2023-08-05T00:29:48.574Z</published>
+    <updated>2023-08-05T00:40:15.969Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="CV"><a href="#CV" class="headerlink" title="CV"></a>CV</h1><h2 id="Lec2"><a href="#Lec2" class="headerlink" title="Lec2"></a>Lec2</h2><h3 id="Camera-parameters"><a href="#Camera-parameters" class="headerlink" title="Camera parameters"></a>Camera parameters</h3><div class="note info modern"><p>The commonly used coordinate systems in Computer Vision are</p><ol><li><strong>World coordinate system (3D)</strong></li><li><strong>Camera coordinate system (3D)</strong></li><li><strong>Image coordinate system (2D)</strong></li><li><strong>Pixel coordinate system (2D)</strong></li></ol></div><p><img src="/2023/08/05/CV/CV-notes/1*9RqYQTkYlPRZIG-GZWaddQ.png" alt="img"></p><p><img src="/2023/08/05/CV/CV-notes/1*qaMTLhQL-XNv_S1RJ7W21g.jpeg" alt="img"></p><p><img src="/2023/08/05/CV/CV-notes/1*e-Z4RU56CDGNEpKTkEMbiA.jpeg" alt="img"></p><p><img src="/2023/08/05/CV/CV-notes/1*-5UAHG6hOodnDrF5ZriNIQ.jpeg" alt="img"></p><p><img src="/2023/08/05/CV/CV-notes/1*owK4O-NkFj-xFlCAFMzX7w.jpeg" alt="img"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;CV&quot;&gt;&lt;a href=&quot;#CV&quot; class=&quot;headerlink&quot; title=&quot;CV&quot;&gt;&lt;/a&gt;CV&lt;/h1&gt;&lt;h2 id=&quot;Lec2&quot;&gt;&lt;a href=&quot;#Lec2&quot; class=&quot;headerlink&quot; title=&quot;Lec2&quot;&gt;&lt;/a&gt;Lec2&lt;/h</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2023/07/26/Computer%20Vision/"/>
+    <id>http://example.com/2023/07/26/Computer%20Vision/</id>
+    <published>2023-07-26T13:39:05.619Z</published>
+    <updated>2023-07-28T06:56:01.460Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Computer-Vision"><a href="#Computer-Vision" class="headerlink" title="Computer Vision"></a>Computer Vision</h1><h2 id="Lecture1-Introduction"><a href="#Lecture1-Introduction" class="headerlink" title="Lecture1 Introduction"></a>Lecture1 Introduction</h2><ul><li><p><strong>Robustness</strong>. In computer science, robustness is the ability of a computer system to cope with errors during execution and cope with erroneous input.</p><blockquote><p>The system does not crash at the slightest disturbance.</p></blockquote></li></ul><h2 id="Lecture2-Image-Formation"><a href="#Lecture2-Image-Formation" class="headerlink" title="Lecture2 Image Formation"></a>Lecture2 Image Formation</h2><h3 id="2-1-Primitives-and-Transformations"><a href="#2-1-Primitives-and-Transformations" class="headerlink" title="2.1 Primitives and Transformations"></a>2.1 Primitives and Transformations</h3><p>projective</p><p>在2D平面上，inhomogeneous coordinates is $x &#x3D; \begin{pmatrix} x\y\ \end{pmatrix} \in \mathbb{R}^2$</p><p>homogeneous coordinated $\tilde{x} &#x3D; \begin{pmatrix} \tilde{x}\\tilde{y}\\tilde{w}\\end{pmatrix} \in \mathbb{P}^2$</p><p>2D projective space $\mathbb{P}^2 &#x3D; \mathbb{R}^3 \setminus {(0,0,0)}$</p><ul><li>A homogeneous vector can be converted back into an inhomogeneous vector by dividing through by the last element $\tilde{w}$</li></ul><p><strong>augmented vector</strong> all homogeneous vectors $\bar{x}$ that have a on e at the end. 是该规模向量equivalence class中的一个元素，该元素的特征是以1作为last entry。 </p><p><strong>ideal points(points at infinity)</strong> Homogeneous points whose last element is $\tilde{w} &#x3D; 0$. These points can’t be represented with inhomogeneous coordinates!</p><p><img src="/2023/07/26/Computer%20Vision/image-20230727082727818.png" alt="image-20230727082727818"></p><p>quadric equations(二次曲面等式 )</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Computer-Vision&quot;&gt;&lt;a href=&quot;#Computer-Vision&quot; class=&quot;headerlink&quot; title=&quot;Computer Vision&quot;&gt;&lt;/a&gt;Computer Vision&lt;/h1&gt;&lt;h2 id=&quot;Lecture1-Intr</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>LaTeX数学公式语法学习记录</title>
     <link href="http://example.com/2023/07/26/LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
     <id>http://example.com/2023/07/26/LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</id>
     <published>2023-07-26T10:05:05.000Z</published>
-    <updated>2023-07-26T10:35:28.690Z</updated>
+    <updated>2023-07-26T13:38:47.529Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="公式编号"><a href="#公式编号" class="headerlink" title="公式编号"></a>公式编号</h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span> f(x) = a - b <span class="keyword">\tag</span>&#123;1.1&#125; <span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure><h3 id="数学运算"><a href="#数学运算" class="headerlink" title="数学运算"></a>数学运算</h3><ul><li>点乘<code>2 = 2 \cdot x</code> $2 &#x3D; 2 \cdot x$</li><li>不等于<code>1 \neq 0</code> $ 1 \neq 0$</li><li>恒等于<code>1 \equiv 1</code> $1 \equiv 1$</li><li>取模<code>1 = 9 \bmod 2</code> $1 &#x3D; 9 \bmod 2$</li><li>下标<code>log_&#123;2&#125;&#123;x+1&#125;</code> $ log_{2}{x+1}$</li><li>上标<code>e^x</code> $ e^x$</li><li>求导<code>X&#39;</code> $ X’$</li><li>根号<code>\sqrt&#123;X+4&#125;</code>  $\sqrt {X+4}$</li><li>n次方根<code>\sqrt[3]&#123;21&#125;</code>  $\sqrt[3] {21}$</li><li>分数<code>\frac&#123;3&#125;&#123;4&#125;</code> $\frac{3}{4}$</li><li>上加线<code>\overline&#123;x&#125;</code>  $\overline{x}$</li><li>下加线<code>\underline&#123;x&#125;</code> $\underline{x}$</li><li>上括号<code>\overbrace&#123;x&#125;^&#123;y&#125;</code> $\overbrace{x}^{y}$</li><li>下括号<code>\underbrace&#123;x&#125;_&#123;y&#125;</code> $\underbrace{x}_{y}$</li><li>向量<code>\vec&#123;x&#125;</code> $\vec{x}$</li><li>右箭头<code>\overrightarrow&#123;x&#125;</code> $\overrightarrow{x}$</li><li>左箭头<code>\overleftarrow&#123;x&#125;</code> $\overleftarrow{x}$</li><li>积分<code>\int_&#123;1&#125;^&#123;5&#125;x\mathrm&#123;d&#125;x</code>$\int_{1}^{5}x\mathrm{d}x$</li><li>极限<code>\lim_&#123;x \to \infty&#125;</code> $\lim_{x \to \infty}$</li><li>求和<code>\sum_&#123;n=1&#125;^&#123;20&#125; n^&#123;2&#125;</code> $\sum_{n&#x3D;1}^{20} n^{2}$</li><li>求积<code>\prod_&#123;j=1&#125;^&#123;3&#125; y_&#123;j&#125;</code> $\prod_{j&#x3D;1}^{3} y_{j}$</li><li>省略号<code>x_&#123;1&#125;,x_&#123;2&#125;,\ldots,x_&#123;5&#125;</code>$x_{1},x_{2},\ldots,x_{5}$</li><li>hat<code>\hat&#123;x&#125;</code> $\hat{x}$</li><li>bar<code>\bar&#123;x&#125;</code> $\bar{x}$</li></ul>]]></content>
+    <content type="html"><![CDATA[<h3 id="公式编号"><a href="#公式编号" class="headerlink" title="公式编号"></a>公式编号</h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span> f(x) = a - b <span class="keyword">\tag</span>&#123;1.1&#125; <span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure><h3 id="数学运算"><a href="#数学运算" class="headerlink" title="数学运算"></a>数学运算</h3><ul><li><p>点乘<code>2 = 2 \cdot x</code> $2 &#x3D; 2 \cdot x$</p></li><li><p>不等于<code>1 \neq 0</code> $ 1 \neq 0$</p></li><li><p>恒等于<code>1 \equiv 1</code> $1 \equiv 1$</p></li><li><p>取模<code>1 = 9 \bmod 2</code> $1 &#x3D; 9 \bmod 2$</p></li><li><p>下标<code>log_&#123;2&#125;&#123;x+1&#125;</code> $ log_{2}{x+1}$</p></li><li><p>上标<code>e^x</code> $ e^x$</p></li><li><p>求导<code>X&#39;</code> $ X’$</p></li><li><p>根号<code>\sqrt&#123;X+4&#125;</code>  $\sqrt {X+4}$</p></li><li><p>n次方根<code>\sqrt[3]&#123;21&#125;</code>  $\sqrt[3] {21}$</p></li><li><p>分数<code>\frac&#123;3&#125;&#123;4&#125;</code> $\frac{3}{4}$</p></li><li><p>上加线<code>\overline&#123;x&#125;</code>  $\overline{x}$</p></li><li><p>下加线<code>\underline&#123;x&#125;</code> $\underline{x}$</p></li><li><p>上括号<code>\overbrace&#123;x&#125;^&#123;y&#125;</code> $\overbrace{x}^{y}$</p></li><li><p>下括号<code>\underbrace&#123;x&#125;_&#123;y&#125;</code> $\underbrace{x}_{y}$</p></li><li><p>向量<code>\vec&#123;x&#125;</code> $\vec{x}$</p></li><li><p>右箭头<code>\overrightarrow&#123;x&#125;</code> $\overrightarrow{x}$</p></li><li><p>左箭头<code>\overleftarrow&#123;x&#125;</code> $\overleftarrow{x}$</p></li><li><p>积分<code>\int_&#123;1&#125;^&#123;5&#125;x\mathrm&#123;d&#125;x</code>$\int_{1}^{5}x\mathrm{d}x$</p></li><li><p>极限<code>\lim_&#123;x \to \infty&#125;</code> $\lim_{x \to \infty}$</p></li><li><p>求和<code>\sum_&#123;n=1&#125;^&#123;20&#125; n^&#123;2&#125;</code> $\sum_{n&#x3D;1}^{20} n^{2}$</p></li><li><p>求积<code>\prod_&#123;j=1&#125;^&#123;3&#125; y_&#123;j&#125;</code> $\prod_{j&#x3D;1}^{3} y_{j}$</p></li><li><p>省略号<code>x_&#123;1&#125;,x_&#123;2&#125;,\ldots,x_&#123;5&#125;</code>$x_{1},x_{2},\ldots,x_{5}$</p></li><li><p>hat<code>\hat&#123;x&#125;</code> $\hat{x}$</p></li><li><p>bar<code>\bar&#123;x&#125;</code> $\bar{x}$</p></li><li><p>tilde <code>\tilde&#123;x&#125;</code> $\tilde{x}$</p></li><li><p>矩阵 <code>\begin&#123;matrix&#125;a\\ b\\ \end&#123;matrix&#125;</code> $\begin{matrix}a\ b\ \end{matrix}$</p></li><li><p><code>\begin&#123;pmatrix&#125;a\\ b\\ \end&#123;pmatrix&#125;</code>$\begin{pmatrix}a\ b\ \end{pmatrix}$</p></li><li><p><code>\begin&#123;vmatrix&#125;a\\ b\\ \end&#123;vmatrix&#125;</code> $\begin{vmatrix}a\ b\ \end{vmatrix}$</p></li><li><pre><code class="LeTeX">\begin&#123;bmatrix&#125;1 &amp; 2 &amp; \cdots \\67 &amp; 95 &amp; \cdots \\\vdots  &amp; \vdots &amp; \ddots \\\end&#123;bmatrix&#125;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- $\begin&#123;bmatrix&#125;</span><br><span class="line">  1 &amp; 2 &amp; \cdots \\</span><br><span class="line">  67 &amp; 95 &amp; \cdots \\</span><br><span class="line">  \vdots  &amp; \vdots &amp; \ddots \\</span><br><span class="line">  \end&#123;bmatrix&#125;$</span><br><span class="line"></span><br><span class="line">### 希腊字母</span><br><span class="line">  ![img](LaTeX%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/v2-da3e717cf670582fbfbdddee33073524_1440w.webp)</span><br><span class="line"></span><br><span class="line">### 多行公式</span><br><span class="line"></span><br><span class="line">- ```latex</span><br><span class="line">  D(x) = \begin&#123;cases&#125;</span><br><span class="line">  \lim\limits_&#123;x \to 0&#125; \frac&#123;a^x&#125;&#123;b+c&#125;, &amp; x&lt;3 \\</span><br><span class="line">  \pi, &amp; x=3 \\</span><br><span class="line">  \int_a^&#123;3b&#125;x_&#123;ij&#125;+e^2 \mathrm&#123;d&#125;x,&amp; x&gt;3 \\</span><br><span class="line">  \end&#123;cases&#125;</span><br></pre></td></tr></table></figure></code></pre></li><li><p>$D(x) &#x3D; \begin{cases}<br>\lim\limits_{x \to 0} \frac{a^x}{b+c}, &amp; x&lt;3 \<br>\pi, &amp; x&#x3D;3 \<br>\int_a^{3b}x_{ij}+e^2 \mathrm{d}x,&amp; x&gt;3 \<br>\end{cases}$</p></li></ul><h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><ul><li>实数集 <code>\mathbb&#123;R&#125;</code> $\mathbb{R}$ </li><li>有理数集 <code>\mathbf&#123;Q&#125;</code> $\mathbf{Q}$</li></ul><div class="note info no-icon modern"><p>\mathbb是空心字符，\mathbf是实心字符</p></div><ul><li>空集 <code>\emptyset</code> $\emptyset$</li><li>属于 <code>\in</code> $\in$</li><li>包含于 <code>\subseteq</code> $\subseteq$</li><li>并 <code>\cup</code> $\cup$</li><li><code>\bigcup_&#123;i=1&#125;^m \mathbf&#123;X&#125;_i</code> $\bigcup_{i&#x3D;1}^m \mathbf{X}_i$</li></ul>]]></content>
     
     
     <summary type="html">记录一下LaTeX的部分数学公式语法</summary>
