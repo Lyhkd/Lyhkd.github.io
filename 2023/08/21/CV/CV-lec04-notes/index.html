@@ -1,0 +1,327 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CV学习笔记-lec4 | 夜航船</title><meta name="author" content="Yule"><meta name="copyright" content="Yule"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Lecture-Computer vision, lec_04 stereo reconstruction">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CV学习笔记-lec4">
+<meta property="og:url" content="http://example.com/2023/08/21/CV/CV-lec04-notes/index.html">
+<meta property="og:site_name" content="夜航船">
+<meta property="og:description" content="Lecture-Computer vision, lec_04 stereo reconstruction">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar.jpg">
+<meta property="article:published_time" content="2023-08-21T02:45:00.000Z">
+<meta property="article:modified_time" content="2023-08-30T05:18:43.123Z">
+<meta property="article:author" content="Yule">
+<meta property="article:tag" content="CV">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/08/21/CV/CV-lec04-notes/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'CV学习笔记-lec4',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-30 13:18:43'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="夜航船" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="wizard-scene"><div class="wizard-objects"><div class="wizard-square"></div><div class="wizard-circle"></div><div class="wizard-triangle"></div></div><div class="wizard"><div class="wizard-body"></div><div class="wizard-right-arm"><div class="wizard-right-hand"></div></div><div class="wizard-left-arm"><div class="wizard-left-hand"></div></div><div class="wizard-head"><div class="wizard-beard"></div><div class="wizard-face"><div class="wizard-adds"></div></div><div class="wizard-hat"><div class="wizard-hat-of-the-hat"></div><div class="wizard-four-point-star --first"></div><div class="wizard-four-point-star --second"></div><div class="wizard-four-point-star --third"></div></div></div></div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: linear-gradient(45deg,"><nav id="nav"><span id="blog-info"><a href="/" title="夜航船"><span class="site-name">夜航船</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">CV学习笔记-lec4</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-08-21T02:45:00.000Z" title="发表于 2023-08-21 10:45:00">2023-08-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-08-30T05:18:43.123Z" title="更新于 2023-08-30 13:18:43">2023-08-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="CV学习笔记-lec4"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>CV-lec04-Stereo-Reconstruction</h1>
+<h2 id="Preliminaries">Preliminaries</h2>
+<p>采用双目立体视觉（Stereo Stereopsis）通过观察者的双眼视觉能力来测量观察者与目标之间的距离。通过旋转棱镜，直到标记在操作者的合并视图中重叠为止。距离是通过旋转的过程得出的。</p>
+<h3 id="Two-View-Stereo-Matching">Two View Stereo Matching</h3>
+<p>Recover disparity (=inverse depth) for every pixel from two input images</p>
+<p>Task: Construct a dense 3D model from 2 images of a static scene<br>
+Pipeline:</p>
+<ol>
+<li>Calibrate cameras intrinsically and extrinsically (Lecture 3.1)</li>
+<li>Rectify images given the calibration</li>
+<li>Compute disparity map for reference image</li>
+<li>Remove outliers using consistency/occlusion test</li>
+<li>Obtain depth from disparity using camera calibration</li>
+<li>Construct 3D model, e.g., via volumetric fusing and meshing (Lecture 8.4)</li>
+</ol>
+<ul>
+<li>Disparity</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/460119182">https://zhuanlan.zhihu.com/p/460119182</a></p>
+<p><a target="_blank" rel="noopener" href="https://aijishu.com/a/1060000000139727">https://aijishu.com/a/1060000000139727</a></p>
+<p>eight-point algorithm <a target="_blank" rel="noopener" href="https://www.cnblogs.com/wangguchangqing/p/8214032.html">https://www.cnblogs.com/wangguchangqing/p/8214032.html</a></p>
+<p><strong>数据归一化</strong>在数值计算文献中也被称为预条件处理，它在DLT（Direct Linear Transform）算法中是实质性的，而非可有可无。数据归一化对于条件数（数值分析中，一个问题的条件数是该数量在数值计算中的容易程度的衡量，也就是该问题的适定性。一个低条件数的问题称为良态的，而高条件数的问题称为病态的。）不太好的问题尤为重要，比如多视几何中的基本矩阵和三焦点张量的计算。归一化变换的一般步骤如下：</p>
+<ol>
+<li>对点进行平移使其形心位于原点。首先计算点集的形心（即中心），然后将所有点坐标都减去形心即可。</li>
+<li>对点进行缩放使它们到原点的平均距离等于√2。比如，对于用齐次坐标表示的二维图像点，这意味着变换后“平均”点为(1, 1, 1)T。如果在变换过程中，对所有坐标维度应用的缩放因子是一样的，则该变换称为各向同性缩放。反之，则是非各向同性缩放，它一般是使得各个坐标维度变换后具有相同的尺度，变换结果形如一个“圆”。需要注意的是，非各向同性缩放会增加额外的开销，且其结果并不比各向同性缩放有显著的提高。</li>
+<li>若有多个独立数据，则分别对其独立进行上述变换。</li>
+<li>变换后即可进行计算，最后再将计算结果进行解除归一化即可。</li>
+</ol>
+<h2 id="补充知识">补充知识</h2>
+<h3 id="卷积神经网络">卷积神经网络</h3>
+<p>参考资料：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/42559190">知乎</a></p>
+<blockquote>
+<p>CNN（convolutional neural network），主要就是通过一个个的filter，不断地提取特征，从局部的特征到总体的特征，从而进行图像识别等等功能。</p>
+</blockquote>
+<h4 id="基本术语">基本术语</h4>
+<p><strong>padding 填白</strong></p>
+<ul>
+<li>每次卷积，图像都缩小，这样卷不了几次就没了；</li>
+<li>相比于图片中间的点，图片边缘的点在卷积中被计算的次数很少。</li>
+</ul>
+<p>我们每次卷积前，先给图片周围都补一圈空白，让卷积之后图片跟原来一样大，同时，原来的边缘也被计算了更多次。我们把上面这种“让卷积之后的大小不变”的padding方式，称为 **“Same”**方式， 把不经过任何填白的，称为 **“Valid”**方式。这个是我们在使用一些框架的时候，需要设置的超参数。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/08/21/CV/CV-lec04-notes/v2-f03987b7625b534bd268d0eeb2303586_1440w.jpeg" alt="img"></p>
+<p><strong>stride 步长</strong> 前面我们所介绍的卷积，都是默认步长是1，但实际上，我们可以设置步长为其他的值。 比如，对于(8,8)的输入，我们用(3,3)的filter， 如果stride=1，则输出为(6,6); 如果stride=2，则输出为(3,3);（这里例子举得不大好，除不断就向下取整）</p>
+<p><strong>pooling 池化</strong> 这个pooling，是为了提取一定区域的主要特征，并减少参数数量，防止模型过拟合。 比如下面的MaxPooling，采用了一个2×2的窗口，并取stride=2。（也就是选取一个窗口内最能代表该窗口的值，最大值、平均值、最小值等等）</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/08/21/CV/CV-lec04-notes/v2-26cd15a3bc3002d5882696c0dc9c4e38_1440w.webp" alt="img"></p>
+<p><strong>对多通道（channels）图片的卷积</strong> 这个需要单独提一下。彩色图像，一般都是RGB三个通道（channel）的，因此输入数据的维度一般有三个：<strong>（长，宽，通道）</strong>。 比如一个28×28的RGB图片，维度就是(28,28,3)。如果使用一个filter对一张多通道图片卷积，可以看作该filter在同一位置对不同图层进行卷积并且求和。但要注意，此时filter也具有维度，即是一个(3,3,3)的filter。输出的维度依然是(6,6)</p>
+<p>但是，一般情况下，我们会 <strong>使用多filters同时卷积</strong>，比如，如果我们同时使用4个filter的话，那么 <strong>输出的维度则会变为(6,6,4)</strong>。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/08/21/CV/CV-lec04-notes/v2-ed142569eafbf2d3060b3248fd03a733_1440w.webp" alt="img"></p>
+<h4 id="结构组成">结构组成</h4>
+<p><strong>1. Convolutional layer（卷积层–CONV）</strong></p>
+<p>由滤波器filters和激活函数构成。 一般要设置的超参数包括filters的数量、大小、步长，以及padding是“valid”还是“same”。当然，还包括选择什么激活函数。</p>
+<p><strong>2. Pooling layer （池化层–POOL）</strong></p>
+<p>这里里面没有参数需要我们学习，因为这里里面的参数都是我们设置好了，要么是Maxpooling，要么是Averagepooling。 需要指定的超参数，包括是Max还是average，窗口大小以及步长。 通常，我们使用的比较多的是Maxpooling,而且一般取大小为(2,2)步长为2的filter，这样，经过pooling之后，输入的长宽都会缩小2倍，channels不变。</p>
+<p><strong>3. Fully Connected layer（全连接层–FC）</strong></p>
+<p>这个前面没有讲，是因为这个就是我们最熟悉的家伙，<strong>就是我们之前学的神经网络中的那种最普通的层，就是一排神经元</strong>。因为这一层是每一个单元都和前一层的每一个单元相连接，所以称之为“全连接”。 这里要指定的超参数，无非就是神经元的数量，以及激活函数。</p>
+<h3 id="神经网络">神经网络</h3>
+<h4 id="Logistic-Regression">Logistic Regression</h4>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/08/21/CV/CV-lec04-notes/v2-3b5097d921c7837ab3c4f602e5a1df0b_1440w.webp" alt="img"></p>
+<p><strong>特征（feather）<strong>左边从x0到x12287的输入，在图片识别中，特征通常是图片的像素值，把所有的像素值排成一个序列就是输入特征。通常组合成</strong>列向量x(i)</strong>。</p>
+<p><strong>权重（weight）<strong>每一个特征都有自己的一个权重，就是图中连线上的</strong>w0到w12287</strong>，通常我们也把左右的权重组合成一个<strong>列向量W</strong>。</p>
+<p><strong>神经元</strong> 中间的圆圈，我们可以叫它一个神经元，它接收来自左边的输入并乘以相应的权重,再加上一个偏置项b（一个实数）</p>
+<blockquote>
+<p>所以最终接收的总输入为：<strong>x0w0+x1w1+…+x12287w12287+b=W^T^x+b</strong></p>
+</blockquote>
+<p>**激活函数（activation function）**但是这个并不是最后的输出，就跟神经元一样，会有一个激活函数来对输入进行处理，来决定是否输出或者输出多少。</p>
+<blockquote>
+<p>Logistic Regression的激活函数是<strong>sigmoid函数</strong>，介于0和1之间，中间的斜率比较大，两边的斜率很小并在远处趋于零。长这样（记住函数表达式）：<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/08/21/CV/CV-lec04-notes/v2-91bf92416e9ef4a9b66ea59a0f5ed7a8_1440w.jpeg" alt="img"></p>
+<p>最后的输出为<strong>y’ = σ(W^T^x+b)</strong></p>
+</blockquote>
+<p><strong>损失函数（Loss function）<strong>我们需要学习到的W和b可以让模型的预测值y’与真实标签y尽可能地接近，也就是y’和y的差距尽量地缩小。因此，我们可以定义一个</strong>损失函数</strong>，来衡量y’和y的差距：<strong>L(y’,y) = -[y·log(y’)+(1-y)·log(1-y’)]</strong></p>
+<blockquote>
+<p>如何说明这个式子适合当损失函数呢？且看：</p>
+<ul>
+<li>当y=1时，L(y’,y)=-log(y’)，要使L最小，则y’要最大，则y’=1；</li>
+<li>当y=0时，L(y’,y)=-log(1-y’)，要使L最小，则y’要最小，则y’=0.</li>
+</ul>
+<p>如此，便知L(y’,y)符合我们对损失函数的期望，因此适合作为损失函数</p>
+</blockquote>
+<p><strong>训练样本</strong>，也就是有很多很多的x，就是会有x(1)，x(2)，…，x(m) 共m个样本，它们可以写成一个大<strong>X 行向量</strong>：**X = (x(1)，x(2)，…，x(m) )**对应的样本的真实标签Y（也是行向量）：**Y = (y(1)，y(2)，…，y(m) )**通过我们的模型计算出的y’们也可以组成一个行向量：<strong>Y’ = (y’(1)，y’(2)，…，y’(m) )</strong></p>
+<p><strong>代价函数（Cost function）<strong>损失函数L,对每个x都有，因此在学习模型的时候，我们需要看所有x的</strong>平均损失</strong>，因此定义一个代价函数：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo stretchy="false">(</mo><mi>W</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mi>m</mi></mfrac><mo separator="true">⋅</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></msubsup><mi>L</mi><mo stretchy="false">(</mo><msup><mi>y</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">J(W,b) = \frac{1}{m} ·\sum^m_{i=1}L(y&#x27;(i),y(i))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">m</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8043em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">i</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mord mathnormal">i</span><span class="mclose">))</span></span></span></span> 代表所有训练样本的平均损失。</p>
+<p><strong>首要任务</strong> <em>Find W,b that minimize J(W,b)</em></p>
+<p><strong>梯度下降法（Gradient Decent）<strong>这个方法通俗一点就是，先随机在曲线上找一个点，然后求出该点的斜率，也称为梯度，然后顺着这个梯度的方向往下走一步，到达一个新的点之后，重复以上步骤，直到到达最低点（或达到我们满足的某个条件）。如，对w进行梯度下降，则就是重复一下步骤（重复一次称为一个</strong>迭代</strong>）：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>:</mo><mo>=</mo><mi>w</mi><mo>−</mo><mi>α</mi><mo stretchy="false">(</mo><mfrac><mrow><mi>d</mi><mi>J</mi></mrow><mrow><mi>d</mi><mi>w</mi></mrow></mfrac><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">w := w - α(\frac{dJ}{dw})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.2251em;vertical-align:-0.345em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.09618em;">dJ</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">)</span></span></span></span>  其中:=代表“用后面的值更新”，α代表“<strong>学习率（learning rate）</strong>”，dJ/dw就是J对w求偏导。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/08/21/CV/CV-lec04-notes/v2-c7bdaa2e2285ee2147451108659adfd6_1440w.webp" alt="img"></p>
+<p><strong>训练模型的步骤</strong>：</p>
+<ol>
+<li>初始化W和b</li>
+<li>指定learning rate和迭代次数</li>
+<li>每次迭代，根据当前W和b计算对应的梯度（J对W，b的偏导数），然后更新W和b</li>
+<li>迭代结束，学得W和b，带入模型进行预测，分别测试在训练集合测试集上的准确率，从而评价模型</li>
+</ol>
+<h4 id="编程指导原则">编程指导原则</h4>
+<blockquote>
+<p><strong>只要可能，就不要使用显示for循环（explicit for-loop），而是尽可能采用矢量化技术（Vectorization）</strong></p>
+</blockquote>
+<h4 id="例子：一个浅层神经网络">例子：一个浅层神经网络</h4>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/08/21/CV/CV-lec04-notes/v2-c6c624d75fce3d11dc943f237419544c_1440w.jpeg" alt="img"></p>
+<p>需要注意的是，上面的图是“两层”，而不是三层或者四层，输入和输出不算层!<br>
+这里，我们先规定一下<strong>记号（Notation）</strong>：</p>
+<ul>
+<li>z是x和w、b线性运算的结果，z=wx+b；</li>
+<li>a是z的激活值；</li>
+<li><strong>下标</strong>的1,2,3,4代表该层的<strong>第i个神经元</strong>（unit）；</li>
+<li><strong>上标</strong>的[1],[2]等代表当前是<strong>第几层</strong>。</li>
+<li>y^代表模型的输出，y才是真实值，也就是标签</li>
+</ul>
+<p>另外，有一点经常搞混：</p>
+<ul>
+<li>上图中的x1，x2，x3，x4<strong>不是代表4个样本！<strong>而</strong>是一个样本的四个特征</strong>（4个维度的值）！<br>
+你如果有m个样本，代表要把上图的过程重复m次：</li>
+</ul>
+<p><strong>神经网络的“两个传播”：</strong></p>
+<ul>
+<li>**前向传播（Forward Propagation）**前向传播就是从input，经过一层层的layer，不断计算每一层的z和a，最后得到输出y^ 的过程，计算出了y^，就可以根据它和真实值y的差别来计算损失（loss）。</li>
+<li>**反向传播（Backward Propagation）**反向传播就是根据损失函数L(y^,y)来反方向地计算每一层的z、a、w、b的偏导数（梯度），从而更新参数。</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/08/21/CV/CV-lec04-notes/v2-269e6852ea9dcc841957d447d833dae0_1440w.jpeg" alt="img"></p>
+<p>每经过一次前向传播和反向传播之后，参数就更新一次，然后用新的参数再次循环上面的过程。这就是神经网络训练的整个过程。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Yule</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/08/21/CV/CV-lec04-notes/">http://example.com/2023/08/21/CV/CV-lec04-notes/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">夜航船</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CV/">CV</a></div><div class="post_share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/09/01/CV/CV-lec05-06-notes/" title="CV学习笔记-lec5&amp;6"><div class="cover" style="background: linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CV学习笔记-lec5&amp;6</div></div></a></div><div class="next-post pull-right"><a href="/2023/08/15/CV/CV-lec03-notes/" title="CV学习笔记-lec3"><div class="cover" style="background: linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CV学习笔记-lec3</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/07/29/CV/CV-lec01-notes/" title="CV学习笔记-lec1"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-29</div><div class="title">CV学习笔记-lec1</div></div></a></div><div><a href="/2023/08/15/CV/CV-lec03-notes/" title="CV学习笔记-lec3"><div class="cover" style="background: linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-15</div><div class="title">CV学习笔记-lec3</div></div></a></div><div><a href="/2023/08/05/CV/CV-lec02-notes/" title="CV学习笔记-lec2"><div class="cover" style="background: linear-gradient(45deg,"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-05</div><div class="title">CV学习笔记-lec2</div></div></a></div><div><a href="/2023/09/01/CV/CV-lec05-06-notes/" title="CV学习笔记-lec5&amp;6"><div class="cover" style="background: linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-01</div><div class="title">CV学习笔记-lec5&amp;6</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yule</div><div class="author-info__description">我在呼吸宇宙的病症</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Lyhkd"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lyhkd" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://space.bilibili.com/9868241" target="_blank" title="Bilibili"><i class="fas fa-tv" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里是不知道写点什么的公告w</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">CV-lec04-Stereo-Reconstruction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Preliminaries"><span class="toc-text">Preliminaries</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Two-View-Stereo-Matching"><span class="toc-text">Two View Stereo Matching</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86"><span class="toc-text">补充知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-text">卷积神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%9C%AF%E8%AF%AD"><span class="toc-text">基本术语</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E7%BB%84%E6%88%90"><span class="toc-text">结构组成</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-text">神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Logistic-Regression"><span class="toc-text">Logistic Regression</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E6%8C%87%E5%AF%BC%E5%8E%9F%E5%88%99"><span class="toc-text">编程指导原则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%EF%BC%9A%E4%B8%80%E4%B8%AA%E6%B5%85%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-text">例子：一个浅层神经网络</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/09/23/Numerical%20Analysis/NA(1)/" title="NA(1)舍入误差(Roundoff errors)和计算机代数(Computer Arithmetic)">NA(1)舍入误差(Roundoff errors)和计算机代数(Computer Arithmetic)</a><time datetime="2023-09-23T11:20:30.000Z" title="发表于 2023-09-23 19:20:30">2023-09-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/09/01/CV/CV-lec05-06-notes/" title="CV学习笔记-lec5&amp;6">CV学习笔记-lec5&amp;6</a><time datetime="2023-09-01T03:02:00.000Z" title="发表于 2023-09-01 11:02:00">2023-09-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/21/CV/CV-lec04-notes/" title="CV学习笔记-lec4">CV学习笔记-lec4</a><time datetime="2023-08-21T02:45:00.000Z" title="发表于 2023-08-21 10:45:00">2023-08-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/15/CV/CV-lec03-notes/" title="CV学习笔记-lec3">CV学习笔记-lec3</a><time datetime="2023-08-15T08:06:00.000Z" title="发表于 2023-08-15 16:06:00">2023-08-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/05/CV/CV-lec02-notes/" title="CV学习笔记-lec2">CV学习笔记-lec2</a><time datetime="2023-08-05T00:42:00.000Z" title="发表于 2023-08-05 08:42:00">2023-08-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By Yule</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hello World!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
