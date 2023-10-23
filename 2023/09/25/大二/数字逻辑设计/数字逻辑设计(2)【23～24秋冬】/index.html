@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>数字逻辑设计(2)【23～24秋冬】 | 夜航船</title><meta name="author" content="Yule"><meta name="copyright" content="Yule"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="NumberSystem and Codes NumberSystem 二进制、十进制、八进制、十六进制 三个重要因素：radix(进制)、cardinality(基数)、weight(权重，即某个digit在某一位) representation most significant digit 最左边的 least significant digit 小数点后最右边的，若没有则为A0 $ (N)R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字逻辑设计(2)【23～24秋冬】">
+<meta property="og:url" content="http://example.com/2023/09/25/%E5%A4%A7%E4%BA%8C/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1(2)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/index.html">
+<meta property="og:site_name" content="夜航船">
+<meta property="og:description" content="NumberSystem and Codes NumberSystem 二进制、十进制、八进制、十六进制 三个重要因素：radix(进制)、cardinality(基数)、weight(权重，即某个digit在某一位) representation most significant digit 最左边的 least significant digit 小数点后最右边的，若没有则为A0 $ (N)R">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar.jpg">
+<meta property="article:published_time" content="2023-09-25T05:25:00.000Z">
+<meta property="article:modified_time" content="2023-10-16T05:55:47.216Z">
+<meta property="article:author" content="Yule">
+<meta property="article:tag" content="数逻">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/09/25/%E5%A4%A7%E4%BA%8C/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1(2)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数字逻辑设计(2)【23～24秋冬】',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-16 13:55:47'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="夜航船" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="wizard-scene"><div class="wizard-objects"><div class="wizard-square"></div><div class="wizard-circle"></div><div class="wizard-triangle"></div></div><div class="wizard"><div class="wizard-body"></div><div class="wizard-right-arm"><div class="wizard-right-hand"></div></div><div class="wizard-left-arm"><div class="wizard-left-hand"></div></div><div class="wizard-head"><div class="wizard-beard"></div><div class="wizard-face"><div class="wizard-adds"></div></div><div class="wizard-hat"><div class="wizard-hat-of-the-hat"></div><div class="wizard-four-point-star --first"></div><div class="wizard-four-point-star --second"></div><div class="wizard-four-point-star --third"></div></div></div></div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: linear-gradient(45deg,"><nav id="nav"><span id="blog-info"><a href="/" title="夜航船"><span class="site-name">夜航船</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">数字逻辑设计(2)【23～24秋冬】</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-25T05:25:00.000Z" title="发表于 2023-09-25 13:25:00">2023-09-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-16T05:55:47.216Z" title="更新于 2023-10-16 13:55:47">2023-10-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="数字逻辑设计(2)【23～24秋冬】"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="NumberSystem-and-Codes">NumberSystem and Codes</h3>
+<h4 id="NumberSystem">NumberSystem</h4>
+<p>二进制、十进制、八进制、十六进制</p>
+<p>三个重要因素：radix(进制)、cardinality(基数)、weight(权重，即某个digit在某一位)</p>
+<p><strong>representation</strong></p>
+<p>most significant digit 最左边的</p>
+<p>least significant digit 小数点后最右边的，若没有则为A0</p>
+<p>$ (N)<em>R = (A</em>{n-1}A_{n-2}\ldots A_1A_0 \cdot A_{-1}A_{-2}\ldots A_{-m+1}A_{m})$</p>
+<p><strong>conversion</strong>(2, 8, 16)</p>
+<ol>
+<li>the right expansion method</li>
+<li>fractional shift method</li>
+<li>digital replace method(4位一组 二进制到十六进制)</li>
+</ol>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/09/25/%E5%A4%A7%E4%BA%8C/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1(2)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/image-20230925142058971.png" alt="image-20230925142058971"></p>
+<h4 id="Codes">Codes</h4>
+<h5 id="Binary-Coding">Binary Coding</h5>
+<p>信息分类</p>
+<ul>
+<li>Numeric: 表示数据范围、能够直白简单地计算、和二进制数关系紧密</li>
+<li>Non-numeric：有很大的设计灵活性因为没有算法操作在这些信息上、和二进制数联系不紧密<br>
+eg<strong>颜色编码</strong><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/09/25/%E5%A4%A7%E4%BA%8C/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1(2)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/image-20230925143653951.png" alt="image-20230925143653951"></li>
+</ul>
+<p>M个元素需要被一种二进制编码表示，最少的位数n被需要，他们满足以下关系：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup><mo>≥</mo><mi>M</mi><mo>&gt;</mo><msup><mn>2</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mspace linebreak="newline"></mspace><mi>n</mi><mo>=</mo><mo stretchy="false">⌈</mo><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mi>M</mi><mo stretchy="false">⌉</mo></mrow><annotation encoding="application/x-tex">2^n \geq M &gt; 2^{n-1} \\
+n = \lceil log_2M \rceil
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8504em;vertical-align:-0.136em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7144em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8641em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⌈</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">⌉</span></span></span></span></span></p>
+<p>给定n个digits，在radix r，有<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>r</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">r^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6644em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span>个不同的元素可以被表示</p>
+<p>Codes和Conversion有区别！</p>
+<p>Conversion：$ (13)_{10} = (1101)_2$</p>
+<p>Codes(编码): <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>13</mn><mo>=</mo><mn>0001</mn><mtext> </mtext><mn>0011</mn></mrow><annotation encoding="application/x-tex">13 = 0001\ 0011</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">13</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0001</span><span class="mspace"> </span><span class="mord">0011</span></span></span></span> 这是某一种对13的编码，0和1都不能省去。 例如还有ASCII编码、校验位</p>
+<p><strong>BCD(Binary Coded Decimal) Arithmetic</strong></p>
+<p>进行加法时，如果当前位&gt;9，则要额外加6</p>
+<p><strong>Parity Bit</strong></p>
+<p>偶校验（even parity）：如果字符编码中1的个数为偶数，校验位（redundancy）为0。（即要把1的个数凑到偶数个）</p>
+<blockquote>
+<p>111_ -&gt; 1111</p>
+</blockquote>
+<p>奇校验：如果字符编码中1个个数为奇数，校验位为0。</p>
+<blockquote>
+<p>111_ -&gt; 1110</p>
+</blockquote>
+<p><strong>Gray Code</strong></p>
+<blockquote>
+<p>向上或向下计数时，只改变一个二进制值！</p>
+<p>可以有多种对映方式，即编码的结果不唯一，但是都是符合性质的。</p>
+</blockquote>
+<p>老师提供的解法：每次翻倍的时候，把原本的后几位镜像对称，然后把上部分首位加0，下部分首位加1。</p>
+<p>书中的解法：对于n（偶数）个要编码的数，先取n/2个二进制数，设左边最高位为0，然后从左往右各位依次取原二进制编码的每一位与他左边相邻位的偶校验。eg对于0100的Gray code，0，parity（0，1），parity（1，0），parity（0，0）所以结果就是0110。接着再将已构成的Gray code逆序排列（镜像），将左边最高位设置为1.对于数值在0～2^n^-1范围的二进制编码，可以保留原二进制码的左边最高位，剩下的由原二进制码各位与左边相邻位的奇校验构成。</p>
+<p><strong>Character</strong></p>
+<p>UTF-8 UTF-16 UTF 32</p>
+<ul>
+<li>UTF-8的single byte是和ASCII兼容的。</li>
+<li>头几位的1表明了是多少bytes编码的UTF，中间byte的10可以有效避免接收到错误信息。因为如果接收到了10，可以直接把该数据丢掉。</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/09/25/%E5%A4%A7%E4%BA%8C/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1(2)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/image-20230925142337933.png" alt="image-20230925142337933"></p>
+<h3 id="Binary-Logic-and-Gates">Binary Logic and Gates</h3>
+<ul>
+<li>
+<p>Binary Logic：</p>
+<ul>
+<li>
+<p>Binary variables</p>
+</li>
+<li>
+<p>logic operators：操作在二进制变量上的</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Logic Gates：用来执行logic function</p>
+<blockquote>
+<p>早期电脑中，开关被由relays（继电器）产生的磁场控制。开关反过来开关电路。</p>
+<p>后来，换成了真空管(vacuum tubes)</p>
+<p>如今，晶体管(transistors)被使用来开关电路</p>
+</blockquote>
+</li>
+<li>
+<p>Boolean algebra</p>
+<ul>
+<li>或运算：+</li>
+<li>与运算：·</li>
+<li>XOR<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/09/25/%E5%A4%A7%E4%BA%8C/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1(2)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/image-20230926075052449.png" alt="image-20230926075052449"></li>
+</ul>
+</li>
+<li>
+<p>Truth table</p>
+</li>
+</ul>
+<p><strong>Gate Delay</strong>:传播时会有延迟。输入变化和输出变化之间的时间差是gate delay，即t~G~</p>
+<p>AND-OR-INVERT(AOI 4-2-1)<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/09/25/%E5%A4%A7%E4%BA%8C/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1(2)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/image-20230926075105410.png" alt="image-20230926075105410"></p>
+<p><strong>verilog语法</strong></p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> fig2_5 (L, D, X, A);</span><br><span class="line">    <span class="keyword">input</span> D, X, A;</span><br><span class="line">    <span class="keyword">output</span> L;</span><br><span class="line">    <span class="keyword">wire</span> X_n, t2;</span><br><span class="line">    <span class="keyword">not</span> (X_n, X); <span class="comment">//not(输出, 输入);</span></span><br><span class="line">    <span class="keyword">and</span> (t2, D, X_n);</span><br><span class="line">    <span class="keyword">or</span> (L, t2, A);</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>Boolean Algebra Representation</strong></p>
+<ul>
+<li>single-output Boolean funciton一个表达式只有一个output</li>
+<li>表达性是由二值变量（binary variables）、常数（0或1）、逻辑运算符和括号构成。函数的expression不唯一。</li>
+<li>但一个表达式只对应唯一一个真值表。</li>
+</ul>
+<p><strong>等式定律</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/09/25/%E5%A4%A7%E4%BA%8C/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1(2)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/image-20230926075011184.png" alt="image-20230926075011184"></p>
+<p>Complementing function（反函数）</p>
+<blockquote>
+<p>交换AND和OR，把常数和literal求补</p>
+</blockquote>
+<ol>
+<li>优先级保持不变，有必要时需要添加括号（brackets）</li>
+<li>公共的取反操作（public non-operation）保持不变</li>
+</ol>
+<p>Duality rules（对偶函数）</p>
+<blockquote>
+<p>交换AND和OR，交换0和1，其他变量不变</p>
+</blockquote>
+<p>性质：如果F‘是F的对偶式，那么F也是F’的对偶式。<br>
+应用：如果F和G相等，那么对偶公式F’和G‘也相等</p>
+<p>Dual Principal：表达式等号两边同时取对偶，则布尔等式依然成立。</p>
+<p><strong>其他理论</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/09/25/%E5%A4%A7%E4%BA%8C/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1(2)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/image-20230926075732446.png" alt="image-20230926075732446"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Yule</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/09/25/%E5%A4%A7%E4%BA%8C/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1(2)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/">http://example.com/2023/09/25/%E5%A4%A7%E4%BA%8C/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1(2)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">夜航船</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E9%80%BB/">数逻</a></div><div class="post_share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/09/25/%E5%A4%A7%E4%BA%8C/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6(2)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/" title="宏观经济学(2)【23～24秋冬】"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">宏观经济学(2)【23～24秋冬】</div></div></a></div><div class="next-post pull-right"><a href="/2023/09/23/%E5%A4%A7%E4%BA%8C/NA/2023-09-26-%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90NA(1)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/" title="数值分析NA(1)【23～24秋冬】"><div class="cover" style="background: linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数值分析NA(1)【23～24秋冬】</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/10/09/%E5%A4%A7%E4%BA%8C/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1/2023-09-25-%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1(3)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/" title="数字逻辑设计(3)【23～24秋冬】"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-09</div><div class="title">数字逻辑设计(3)【23～24秋冬】</div></div></a></div><div><a href="/2023/10/16/%E5%A4%A7%E4%BA%8C/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1/2023-10-16-%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1(4)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/" title="数字逻辑设计(4)【23～24秋冬】"><div class="cover" style="background: linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-16</div><div class="title">数字逻辑设计(4)【23～24秋冬】</div></div></a></div><div><a href="/2023/10/23/%E5%A4%A7%E4%BA%8C/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1/2023-10-23-%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1(5)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/" title="数字逻辑设计(5)【23～24秋冬】"><div class="cover" style="background: linear-gradient(45deg,"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-23</div><div class="title">数字逻辑设计(5)【23～24秋冬】</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yule</div><div class="author-info__description">我在呼吸宇宙的病症</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Lyhkd"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lyhkd" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://space.bilibili.com/9868241" target="_blank" title="Bilibili"><i class="fas fa-tv" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里是不知道写点什么的公告w</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#NumberSystem-and-Codes"><span class="toc-text">NumberSystem and Codes</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#NumberSystem"><span class="toc-text">NumberSystem</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Codes"><span class="toc-text">Codes</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Binary-Coding"><span class="toc-text">Binary Coding</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Binary-Logic-and-Gates"><span class="toc-text">Binary Logic and Gates</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/23/%E5%A4%A7%E4%BA%8C/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1/2023-10-23-%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1(5)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/" title="数字逻辑设计(5)【23～24秋冬】">数字逻辑设计(5)【23～24秋冬】</a><time datetime="2023-10-23T05:25:00.000Z" title="发表于 2023-10-23 13:25:00">2023-10-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/17/%E5%A4%A7%E4%BA%8C/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6(1)/" title="微观经济学(1)【23-24秋冬】">微观经济学(1)【23-24秋冬】</a><time datetime="2023-10-17T10:50:00.000Z" title="发表于 2023-10-17 18:50:00">2023-10-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/17/%E5%A4%A7%E4%BA%8C/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%9F%BA%E7%A1%80/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" title="无题">无题</a><time datetime="2023-10-17T07:34:34.927Z" title="发表于 2023-10-17 15:34:34">2023-10-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/17/%E5%A4%A7%E4%BA%8C/NA/2023-10-17-%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90NA(4)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/" title="数值分析NA(4)【23～24秋冬】">数值分析NA(4)【23～24秋冬】</a><time datetime="2023-10-17T02:00:00.000Z" title="发表于 2023-10-17 10:00:00">2023-10-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/17/%E5%A4%A7%E4%BA%8C/FDS/2023-10-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80(4)%E3%80%9023-24%E7%A7%8B%E5%86%AC%E3%80%91/" title="数据结构基础(4)【23-24秋冬】">数据结构基础(4)【23-24秋冬】</a><time datetime="2023-10-17T00:00:00.000Z" title="发表于 2023-10-17 08:00:00">2023-10-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By Yule</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hello World!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机系统概论(ICS)课程笔记Chapter1【22-23暑短】 | 夜航船</title><meta name="author" content="Yule"><meta name="copyright" content="Yule"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="计算机系统概论Chapter1课程笔记，教材采用Yale Patt - Introduction to Computing Systems(3rd Edition)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机系统概论(ICS)课程笔记Chapter1【22-23暑短】">
+<meta property="og:url" content="http://example.com/2023/07/25/%E5%A4%A7%E4%BA%8C/ICS/ICS-Chapter1/index.html">
+<meta property="og:site_name" content="夜航船">
+<meta property="og:description" content="计算机系统概论Chapter1课程笔记，教材采用Yale Patt - Introduction to Computing Systems(3rd Edition)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar.jpg">
+<meta property="article:published_time" content="2023-07-25T00:35:35.000Z">
+<meta property="article:modified_time" content="2023-07-25T00:53:01.684Z">
+<meta property="article:author" content="Yule">
+<meta property="article:tag" content="ICS">
+<meta property="article:tag" content="计算机系统概论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/07/25/%E5%A4%A7%E4%BA%8C/ICS/ICS-Chapter1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计算机系统概论(ICS)课程笔记Chapter1【22-23暑短】',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-25 08:53:01'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="夜航船" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="wizard-scene"><div class="wizard-objects"><div class="wizard-square"></div><div class="wizard-circle"></div><div class="wizard-triangle"></div></div><div class="wizard"><div class="wizard-body"></div><div class="wizard-right-arm"><div class="wizard-right-hand"></div></div><div class="wizard-left-arm"><div class="wizard-left-hand"></div></div><div class="wizard-head"><div class="wizard-beard"></div><div class="wizard-face"><div class="wizard-adds"></div></div><div class="wizard-hat"><div class="wizard-hat-of-the-hat"></div><div class="wizard-four-point-star --first"></div><div class="wizard-four-point-star --second"></div><div class="wizard-four-point-star --third"></div></div></div></div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: linear-gradient(45deg,"><nav id="nav"><span id="blog-info"><a href="/" title="夜航船"><span class="site-name">夜航船</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计算机系统概论(ICS)课程笔记Chapter1【22-23暑短】</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-25T00:35:35.000Z" title="发表于 2023-07-25 08:35:35">2023-07-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-25T00:53:01.684Z" title="更新于 2023-07-25 08:53:01">2023-07-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计算机系统概论(ICS)课程笔记Chapter1【22-23暑短】"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>Introduction to Computing Systems</h1>
+<h2 id="Chapter-1-Welcome-Aboard">Chapter 1 Welcome Aboard</h2>
+<h3 id="1-3-Two-Recurring-Themes">1.3 Two Recurring Themes</h3>
+<h4 id="Abstraction">Abstraction</h4>
+<div class="note default no-icon modern"><p>Abstraction is a technique for establishing a simpler way for a person to interact with a system, removing the details that are unnecessary for the person to interact effectively with that system. Our ability to abstract is very much a productivity enhancer. It allows us to deal with a situation at a higher level, focusing on the essential aspects, while keeping the component ideas in the background. It allows us to be more efficient in our use of time and brain activity. It allows us to not get bogged down in the detail when everything about the detail is working just fine.</p>
+</div>
+<ul>
+<li>
+<p>We needn’t know the layers below of one machine. We have to make a new level of abstraction.</p>
+</li>
+<li>
+<p>Deconstruct — the ability to go from the abstraction back to its component parts.</p>
+</li>
+</ul>
+<h4 id="Hardware-vs-Software">Hardware vs. Software</h4>
+<ul>
+<li>
+<p>We shouldn’t separate people by Hardware and Software.</p>
+</li>
+<li>
+<p>There are important topics in the software that are very deeply interwoven with topics in the hardware. Our contention is that mastering either is easier if you pay attention to both.</p>
+</li>
+<li>
+<p>Most importantly, most computing problems yield better solutions when the problem solver has the capability of both at his or her disposal.</p>
+</li>
+</ul>
+<h3 id="1-4-A-Computer-System">1.4 A  Computer System</h3>
+<ul>
+<li>Computer – a system consisting of the software (i.e., computer programs) that directs and specifies the processing of information (控制信息的处理过程) and the hardware that performs the actual processing of information (执行处理过程) in response to what the software asks the hardware to do.</li>
+<li>This hardware is a central processing unit (CPU)</li>
+<li>Computer —— the collection of parts that in combination from their computer system. in addition to the processor, a key- board for typing commands, a mouse or keypad or joystick for positioning on menu entries, a monitor for displaying information that the computer system has produced, memory for temporarily storing information, disks and USB memory sticks of one sort or another for storing information for a very long time, even after the computer has been turned off, connections to other devices such as a printer for obtaining paper copies of that information, and the collection of programs (the software) that the user wishes to execute.</li>
+</ul>
+<h3 id="1-5-Two-Very-Important-Ideas">1.5 Two Very Important Ideas</h3>
+<div class="note primary no-icon modern"><p>a. All computers (the biggest and the smallest, the fastest and the slowest, the most expensive and the cheapest) are capable of computing exactly the same things if they are given enough time and enough memory. That is, anything a fast computer can do, a slow computer can do also. The slow computer just does it more slowly. A more expensive computer cannot figure out something that a cheaper computer is unable to figure out as long as the cheaper computer can access enough memory. All computers can do exactly the same things. Some computers can do things faster, but none can do more than any other.</p>
+</div>
+<div class="note primary no-icon modern"><p>b. We describe our problems in English or some other language spoken by people. It is necessary to transform our problem from the language of humans to the voltages that influence the flow of electrons. This transformation is really a sequence of systematic transformations.</p>
+</div>
+<h3 id="1-6-Computers-as-Universal-Computational-Devices">1.6 Computers as Universal Computational Devices</h3>
+<ul>
+<li>
+<p>Before modern computers</p>
+<ul>
+<li>
+<p>analog machines</p>
+<ul>
+<li>
+<p>produced an answer by measuring some physical quantity</p>
+</li>
+<li>
+<p>very hard to increase their accuracy</p>
+</li>
+</ul>
+</li>
+<li>
+<p>digital machine</p>
+<ul>
+<li>adding machine</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>We don’t have to buy a new computer. We just give the old computer a new set of instructions (a program) to carry out the new computation</p>
+</li>
+<li>
+<p>Anything that can be computed, can be computed by a computer provided it has enough time and enough memory. So computers are programmable.</p>
+</li>
+<li>
+<p>A big  or expensive computer cannot do more than a small cheap computer.</p>
+</li>
+<li>
+<p>Computer Capability</p>
+<ul>
+<li>The ability to solve the problem is not dependent on the quality of one computer, which only affects the time to solve a problem.</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-7-How-Do-We-Get-the-Electrons-to-Do-the-Work">1.7 How Do We Get the Electrons to Do the Work?</h3>
+<p>We call the steps of this process the “Levels of Transformation.” As we will see, at each level we have choices. If we ignore any of the levels, our ability to make the best use of our computing system can be very adversely affected.</p>
+<h4 id="Transformation-Hierarchy">Transformation Hierarchy</h4>
+<ul>
+<li>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/07/25/%E5%A4%A7%E4%BA%8C/ICS/ICS-Chapter1/IMG_16995C05591F-1.jpeg" alt="IMG_16995C05591F-1" style="zoom:50%;">
+</li>
+<li>
+<p>The Statement of the Problem: Computer can not understand natural language, because of ambiguity, so the first step is interpreting the problem.<br>
+To tell it to do something where there are multiple interpretations would cause the computer to not know which interpretation to follow.</p>
+</li>
+<li>
+<p>The Algorithm: step-by-step procedure that is guaranteed to terminate, such that each step is precisely stated and can be carried out by the computer.</p>
+<ul>
+<li>
+<p>effective computability : each step can be carried out by a computer<br>
+To take the largest prime number lacks effective computability</p>
+</li>
+<li>
+<p>definiteness : each step is precisely stated<br>
+stir until lumpy lacks definiteness, since the notion of lumpiness is not precise</p>
+</li>
+<li>
+<p>finiteness : the procedure will terminate</p>
+</li>
+<li>
+<p>small example: Data Type Conversion – the unary into binary</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Program</p>
+<p>transform the algorithm into a computer program in one of the programming languages that are available.</p>
+<ul>
+<li>
+<p>Programming languages are mechanical languages (C, C++m COBOL, Fortran, Pascal)</p>
+</li>
+<li>
+<p>high-level languages: at a distance (a high level) from the underlying computer. At their best, they are independent of the computer on which the programs will execute. We say the language is “machine independent.” （先前的几种都是高级语言）</p>
+</li>
+<li>
+<p>low-level languages: tied to the computer on which the programs will execute. There is generally one such low-level language for each computer. That language is called the assembly language (汇编语言)for that computer.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>ISA ( instruction set architecture )</p>
+<p>complete specification  of the interface between programs and the underlying computer hardware<br>
+​</p>
+<ul>
+<li>
+<p>opcode: describe the operation</p>
+</li>
+<li>
+<p>operand: describe individual data values</p>
+</li>
+<li>
+<p>data types: representation of an operand such that the computer can perform operations on that representation</p>
+</li>
+<li>
+<p>addressing mode: the mechanisms that the computer can use to figure out where the operands are located</p>
+</li>
+<li>
+<p>The number of opcodes, data types, and addressing modes specified by an ISA vary among different ISAs.<br>
+Some ISAs have one or two addressing modes, whereas others have more than 20. The x86, the ISA used in the PC, has more than 200 opcodes, more than a dozen data types, and more than two dozen addressing modes.</p>
+</li>
+<li>
+<p>ex. x86(intel), ARM, THUMB, POWER</p>
+</li>
+<li>
+<p>The translation from a high-level language ( C ) to the ISA of the computer is usually done by a translating program called compiler. For each high-level language and each desired target ISA, one must provide a corresponding compiler.</p>
+</li>
+<li>
+<p>The translation from the unique assembly language of a computer to its ISA is done by an assembler.</p>
+</li>
+<li>
+<p>汇编语言是用人类看得懂的语言来描述指令集。否则指令集的机器码都是一堆二进制数字，人类读起来非常麻烦。但是汇编语言也有缺点，首先汇编语言操作起来还是挺麻烦的。其次汇编语言对应一条条指令集，所以当指令集改变时，就得修改相应汇编语言，导致其可移植性很差，不能跨平台使用，如ARM的汇编语言与Intel X86的就不同。这时人们就想开发一种更方便操作，超越指令集的语言，于是有了C，C++等高级语言。</p>
+</li>
+<li>
+<p>ISA 连接自然语言描述功能和电脑理解功能 （eg 定义汽车踏板的作用，但是对踏板背后的实现不做要求）</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Micro Architecture</p>
+<ul>
+<li>
+<p>implementation of the ISA</p>
+</li>
+<li>
+<p>can be different from each other</p>
+</li>
+<li>
+<p>Computer design is always an exercise in tradeoffs, as the designer opts for higher (or lower) performance, more (or less) energy required, at greater(or lesser) cost.</p>
+</li>
+<li>
+<p>一个指令集可能有多个微架构，但一个微架构只适用于一个指令集</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Logic Gates</p>
+<ul>
+<li>also have many choices, like an addition, there are several choices of logic circuits to perform the operations at different speeds and corresponding costs</li>
+</ul>
+</li>
+<li>
+<p>Electronic circuits</p>
+</li>
+<li>
+<p>Electron</p>
+</li>
+<li>
+<p>If you are familiar with all layers, you will do a better job</p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Yule</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/07/25/%E5%A4%A7%E4%BA%8C/ICS/ICS-Chapter1/">http://example.com/2023/07/25/%E5%A4%A7%E4%BA%8C/ICS/ICS-Chapter1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">夜航船</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ICS/">ICS</a><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/">计算机系统概论</a></div><div class="post_share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/07/26/%E5%A4%A7%E4%BA%8C/ICS/ICS-Chapter17/" title="计算机系统概论(ICS)课程笔记Chapter17【22-23暑短】"><div class="cover" style="background: linear-gradient(45deg,"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计算机系统概论(ICS)课程笔记Chapter17【22-23暑短】</div></div></a></div><div class="next-post pull-right"><a href="/2023/07/24/Butterfly/" title="在Butterfly和hexo内写blog的部分语法"><div class="cover" style="background: linear-gradient(45deg,"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">在Butterfly和hexo内写blog的部分语法</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/09/22/%E5%A4%A7%E4%BA%8C/ICS/ICS/" title="计算机系统概论(ICS)课程笔记全集【22-23暑短】"><div class="cover" style="background: linear-gradient(45deg,"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-22</div><div class="title">计算机系统概论(ICS)课程笔记全集【22-23暑短】</div></div></a></div><div><a href="/2023/07/26/%E5%A4%A7%E4%BA%8C/ICS/ICS-Chapter17/" title="计算机系统概论(ICS)课程笔记Chapter17【22-23暑短】"><div class="cover" style="background: linear-gradient(45deg,"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-26</div><div class="title">计算机系统概论(ICS)课程笔记Chapter17【22-23暑短】</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yule</div><div class="author-info__description">我在呼吸宇宙的病症</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Lyhkd"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lyhkd" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://space.bilibili.com/9868241" target="_blank" title="Bilibili"><i class="fas fa-tv" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里是不知道写点什么的公告w</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Introduction to Computing Systems</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-1-Welcome-Aboard"><span class="toc-text">Chapter 1 Welcome Aboard</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Two-Recurring-Themes"><span class="toc-text">1.3 Two Recurring Themes</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Abstraction"><span class="toc-text">Abstraction</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hardware-vs-Software"><span class="toc-text">Hardware vs. Software</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-A-Computer-System"><span class="toc-text">1.4 A  Computer System</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-Two-Very-Important-Ideas"><span class="toc-text">1.5 Two Very Important Ideas</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-Computers-as-Universal-Computational-Devices"><span class="toc-text">1.6 Computers as Universal Computational Devices</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-How-Do-We-Get-the-Electrons-to-Do-the-Work"><span class="toc-text">1.7 How Do We Get the Electrons to Do the Work?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Transformation-Hierarchy"><span class="toc-text">Transformation Hierarchy</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/23/%E5%A4%A7%E4%BA%8C/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1/2023-10-23-%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1(5)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/" title="数字逻辑设计(5)【23～24秋冬】">数字逻辑设计(5)【23～24秋冬】</a><time datetime="2023-10-23T05:25:00.000Z" title="发表于 2023-10-23 13:25:00">2023-10-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/17/%E5%A4%A7%E4%BA%8C/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6(1)/" title="微观经济学(1)【23-24秋冬】">微观经济学(1)【23-24秋冬】</a><time datetime="2023-10-17T10:50:00.000Z" title="发表于 2023-10-17 18:50:00">2023-10-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/17/%E5%A4%A7%E4%BA%8C/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%9F%BA%E7%A1%80/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" title="无题">无题</a><time datetime="2023-10-17T07:34:34.927Z" title="发表于 2023-10-17 15:34:34">2023-10-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/17/%E5%A4%A7%E4%BA%8C/NA/2023-10-17-%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90NA(4)%E3%80%9023%EF%BD%9E24%E7%A7%8B%E5%86%AC%E3%80%91/" title="数值分析NA(4)【23～24秋冬】">数值分析NA(4)【23～24秋冬】</a><time datetime="2023-10-17T02:00:00.000Z" title="发表于 2023-10-17 10:00:00">2023-10-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/17/%E5%A4%A7%E4%BA%8C/FDS/2023-10-17-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80(4)%E3%80%9023-24%E7%A7%8B%E5%86%AC%E3%80%91/" title="数据结构基础(4)【23-24秋冬】">数据结构基础(4)【23-24秋冬】</a><time datetime="2023-10-17T00:00:00.000Z" title="发表于 2023-10-17 08:00:00">2023-10-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By Yule</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hello World!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
