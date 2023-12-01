@@ -1,22 +1,16 @@
-site_name: Yule‘s Notebooks
+site_name: Yule's Notebooks
 site_description: 「该如何提醒未来那个健忘的人」
 site_author: Yule
 copyright: Copyright &copy; 2023 - 2099 Yule
 site_url: https://lyhkd.github.io/
 repo_url: https://github.com/Lyhkd/Lyhkd.github.io
-repo_name: mkdocs
+repo_name: Lyhkd/Notebooks
 edit_uri: ""
-language: zh
-hljs_languages:
-- yaml
-markdown_extensions:
-- toc:
-  permalink: true
-- pymdownx.highlight:
-  linenums: true
-  anchor_linenums: true
-- pymdownx.inlinehilite
-- pymdownx.superfences
+
+#hljs_languages:
+#  - yaml
+
+
 # 主题配置
 theme: 
     name: material
@@ -25,6 +19,8 @@ theme:
     palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
+      primary: blue grey
+      accent: indigo
       toggle:
         icon: material//weather-sunny
         name: Switch to dark mode
@@ -34,6 +30,8 @@ theme:
       toggle:
         icon: material/weather-night
         name: Switch to light mode
+    logo: assets/logo.png
+    favicon: assets/logo.png
     features:
     #- navigation.instant # 点击内部链接时，不用全部刷新页面
     - navigation.tracking # 在url中使用标题定位锚点
@@ -49,8 +47,54 @@ theme:
     - search.share # 搜索分享
     - search.suggest # 搜索建议
     - search.highlight #搜索高亮
+    - header.autohide  #标题自动隐藏
+
+markdown_extensions:  #Markdown扩展列表
+    - abbr
+    - smarty  #启用 SmartyPants 排版扩展
+    - admonition  #通过不同颜色现实告警、备注信息
+    - pymdownx.details  #细节折叠
+    - pymdownx.superfences  #超级围栏
+    - attr_list   #属性列表（按钮-颜色图标）
+    - def_list   #定义列表
+    - footnotes  #行内脚注
+    - meta   #元数据
+    - md_in_html  #HTML 中的 Markdown
+    - toc:  
+        permalink: True #在 toc 扩展中启用永久链接
+        separator: "_"  #分割线符号
+    - pymdownx.highlight:
+        linenums: true
+        anchor_linenums: true
+    - pymdownx.arithmatex:  #数学公式
+        generic: true  
+    - pymdownx.betterem:   #粗体斜体
+        smart_enable: all
+    - pymdownx.caret  #插入角标符号(`^`)
+    - pymdownx.mark  #双等号(`==`)
+    - pymdownx.tilde  #波浪号(`~`)
+    #- pymdownx.critic:  #评论家(突出显示建议更改)，未推荐
+    - pymdownx.inlinehilite
+    - pymdownx.superfences
+    - pymdownx.keys   #键盘键和组合  
+    - pymdownx.emoji:  #表情符号
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+    - pymdownx.highlight  #代码高亮，对代码块（SuperFences）和行内代码块（InlineHilite）的语法突出显示
+    - pymdownx.inlinehilite  #行内高亮
+    - pymdownx.smartsymbols  #智能符号
+    - pymdownx.tabbed:  #内容选项卡
+        alternate_style: true  #启用内容选项卡替代样式，必须开启
+    - pymdownx.tasklist:  #任务列表
+        custom_checkbox: true   #切换复选框的呈现样式，将原生复选框样式替换为漂亮的图标
+#      clickable_checkbox: true  #切换复选框是否可点击，默认false，不建议开
 
 plugins:
+    - search  #默认提供搜索，使用lunr.js作为搜索引擎
+        #min_search_length: 2  #查询的最小长度，整数，默认3
+        #separator: '[\s\-\.]+'  #单词分隔符，默认使用空格和连字符，这里添加了点
+        #lang: ja  #搜索索引的语言，中文可使用日语
+        #indexing: 'full'  #构建索引策略，默认full索引每页的标题、章节标题和全文，sections 索引每页的标题和章节标题，titles仅索引每页的标题
   #- git-revision-date-localized:
   #    enable_creation_date: true
   #- git-committers:
@@ -60,3 +104,7 @@ plugins:
 nav:
   - 主页: index.md
 
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
