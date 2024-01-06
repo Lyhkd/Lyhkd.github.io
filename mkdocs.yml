@@ -7,6 +7,7 @@ repo_url: https://github.com/Lyhkd/Lyhkd.github.io
 repo_name: Lyhkd/Notebooks
 edit_uri: ""
 
+
 #hljs_languages:
 #  - yaml
 
@@ -107,12 +108,20 @@ plugins:
   #   branch: main
 
 nav:
-  - 主页: index.md
-  - 大二: 
-      '数据结构': 
-        '前几章': ClassNotes/数据结构.md
-        '测试': ClassNotes/HW summary.md
-      '数字逻辑': ClassNotes/verilog.md 
+  - '主页': index.md
+  - '课程笔记': 
+      - '计算机系统概论✔️':
+        - '汇总': ClassNotes/ICS/ICS.md
+      - '数据结构': 
+        - '前几章': ClassNotes/数据结构.md
+        - '测试': ClassNotes/HW summary.md
+      - '数字逻辑设计': ClassNotes/verilog.md 
+      - '大物实验':
+        - '绪论': ClassNotes/大学物理实验绪论.md
+      - '宏观经济学':
+        - '导论': ClassNotes/macroeconomics/导论.md
+        - 'IS-LM': ClassNotes/macroeconomics/从零开始的宏经笔记.md
+        - '随笔': ClassNotes/macroeconomics/宏经的一些小感悟.md
   
 
 
