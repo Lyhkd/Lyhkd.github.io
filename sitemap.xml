@@ -1,53 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://lyhkd.github.io/</loc>
-         <lastmod>2024-01-31</lastmod>
+         <loc>https://lyhkd.github.io/index.html</loc>
+         <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lyhkd.github.io/ClassNotes/HW%20summary/</loc>
-         <lastmod>2024-01-31</lastmod>
+         <loc>https://lyhkd.github.io/ClassNotes/HW%20summary.html</loc>
+         <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lyhkd.github.io/ClassNotes/verilog/</loc>
-         <lastmod>2024-01-31</lastmod>
+         <loc>https://lyhkd.github.io/ClassNotes/verilog.html</loc>
+         <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lyhkd.github.io/ClassNotes/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C%E7%BB%AA%E8%AE%BA/</loc>
-         <lastmod>2024-01-31</lastmod>
+         <loc>https://lyhkd.github.io/ClassNotes/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C%E7%BB%AA%E8%AE%BA.html</loc>
+         <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lyhkd.github.io/ClassNotes/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-         <lastmod>2024-01-31</lastmod>
+         <loc>https://lyhkd.github.io/ClassNotes/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html</loc>
+         <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lyhkd.github.io/ClassNotes/ICS/ICS/</loc>
-         <lastmod>2024-01-31</lastmod>
+         <loc>https://lyhkd.github.io/ClassNotes/ICS/ICS.html</loc>
+         <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lyhkd.github.io/ClassNotes/macroeconomics/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%AE%8F%E7%BB%8F%E7%AC%94%E8%AE%B0/</loc>
-         <lastmod>2024-01-31</lastmod>
+         <loc>https://lyhkd.github.io/ClassNotes/macroeconomics/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%AE%8F%E7%BB%8F%E7%AC%94%E8%AE%B0.html</loc>
+         <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lyhkd.github.io/ClassNotes/macroeconomics/%E5%AE%8F%E7%BB%8F%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E6%84%9F%E6%82%9F/</loc>
-         <lastmod>2024-01-31</lastmod>
+         <loc>https://lyhkd.github.io/ClassNotes/macroeconomics/%E5%AE%8F%E7%BB%8F%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E6%84%9F%E6%82%9F.html</loc>
+         <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lyhkd.github.io/ClassNotes/macroeconomics/%E5%AF%BC%E8%AE%BA/</loc>
-         <lastmod>2024-01-31</lastmod>
+         <loc>https://lyhkd.github.io/ClassNotes/macroeconomics/%E5%AF%BC%E8%AE%BA.html</loc>
+         <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lyhkd.github.io/%E5%B0%8F%E7%8E%A9%E6%84%8F/%E4%BD%BF%E7%94%A8Pymobiledevice3%E6%9D%A5%E8%BF%9B%E8%A1%8Cios%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D/</loc>
-         <lastmod>2024-01-31</lastmod>
+         <loc>https://lyhkd.github.io/%E5%B0%8F%E7%8E%A9%E6%84%8F/%E4%BD%BF%E7%94%A8Pymobiledevice3%E6%9D%A5%E8%BF%9B%E8%A1%8Cios%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D.html</loc>
+         <lastmod>2024-02-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyhkd.github.io/%E5%B0%8F%E7%8E%A9%E6%84%8F/%E6%96%87%E7%AB%A0%E7%BE%8E%E5%8C%96.html</loc>
+         <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
