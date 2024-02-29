@@ -15,4 +15,21 @@ body {
     color: #518FC1; /* 修改字体颜色 */
   }
 
+  :root {
+    
+    /* Primary color shades */
+    --md-primary-fg-color: #B5495B;
+    --md-primary-fg-color--light: #6d092a94;
+    --md-primary-fg-color--dark: #dd3a70;
+    --md-primary-bg-color: rgb(255, 228, 228);
+    --md-primary-bg-color--light: hsla(0, 55%, 23%, 0.7);
+    --md-text-link-color: rgb(181, 64, 181);
+
+    /* Accent color shades */
+    --md-accent-fg-color: rgb(98, 18, 189);
+    --md-accent-fg-color--transparent: hsla(189, 37%, 61%, 0.1);
+    --md-accent-bg-color: hsla(0, 0%, 100%, 1);
+    --md-accent-bg-color--light: hsla(0, 0%, 100%, 0.7);
+  }
+  
 
